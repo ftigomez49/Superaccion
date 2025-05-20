@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Plataforma Educativa</title>
+  <style>
+    .user-profile {
+  padding: 2rem;
+  background-color: #f9fbfe;
+  border-radius: 12px;
+  max-width: 800px;
+  margin: 2rem auto;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+    .user-profile h2 {
+        font-size: 1.8rem;
+        color: #2c3e50;
+        margin-bottom: 1.2rem;
+    }
+
+    .profile-container {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .profile-pic {
+        flex: 1;
+        text-align: center;
+    }
+
+    .profile-pic img {
+    width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 1rem;
+        border: 3px solid #dbe2ea;
+    }
+
+    .profile-pic input[type="file"] {
+        display: block;
+        margin: 0 auto;
+        font-size: 0.9rem;
+    }
+
+    .profile-info {
+        flex: 2;
+    }
+
+    #bio {
+        width: 100%;
+        padding: 0.8rem;
+        border-radius: 8px;
+        border: 1px solid #ccd6e0;
+        resize: vertical;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .stats div {
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+        color: #34495e;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    summary {
+        cursor: pointer;
+        font-size: 1.1rem;
+        padding: 1rem 1.2rem;
+        font-weight: 500; /* menos grueso */
+        color: #2c3e50; /* gris oscuro, no negro */
+        background: linear-gradient(to right, #eef2f7, #f9fbfd);
+        border-bottom: 1px solid #dbe2ea;
+        border-radius: 8px;
+        position: relative;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    summary:hover {
+        background: #e0ecf9;
+        color: #1a5276;
+    }
+
+    summary::after {
+        content: "▶";
+        position: absolute;
+        right: 1.2rem;
+        transition: transform 0.3s ease;
+        font-size: 1rem;
+        color: #5d6d7e;
+    }
+
+    details[open] summary::after {
+        transform: rotate(90deg);
+        color: #2980b9;
+    }
+
+    body {
+      background: #f4f6f9;
+      color: #333;
+    }
+
+    header {
+      background: #4a90e2;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      margin-left: 1rem;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      padding: 2rem;
+      margin: 1rem auto;
+      max-width: 800px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      display: none;
+    }
+
+   
+
+    h2 {
+      color: #4a90e2;
+      margin-bottom: 1rem;
+    }
+
+    .curso {
+      background: #eaf1fb;
+      border-left: 5px solid #4a90e2;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+    }
+
+    .curso h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    button {
+      background: #4a90e2;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #357ab8;
+    }
+
+    .progreso {
+      background: #dff0d8;
+      border-left: 5px solid #3c763d;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+  </style>
+  
+</head>
+
+<body>
+  <header>
+    <h1>EducaMas</h1>
+    <nav>
+      <button onclick="mostrarSeccion('inicio')">Inicio</button>
+      <button onclick="mostrarSeccion('obtener-certificacion')">Obtener certificación</button>
+      <button onclick="mostrarSeccion('recursos')">Recursos</button>
+      <button onclick="mostrarSeccion('panel')">Panel</button>
+      <button onclick="mostrarSeccion('track')">Avances</button>
+      <button onclick="mostrarSeccion('perfil')">Perfil</button>
+      
+      
+      
+    </nav>
+  </header>
+
+  <section id="inicio" style="display: block;">
+    <h2>Bienvenido/a </h2>
+    <p>Esta plataforma está diseñada para ayudarte a mejorar tus habilidades como educador. Desde recursos interactivos hasta seguimiento personalizado de tu progreso, todo está pensado para potenciar tu aprendizaje. Usa el menú de arriba para comenzar a explorar.</p>
+    
+    <div style="margin-top: 2rem;">
+      <h3 style="color: #4a90e2;">¿Qué puedes hacer aquí?</h3>
+      <ul style="margin-top: 0.5rem; padding-left: 1.2rem;">
+        <li>📚 Acceder a cursos diseñados para fortalecer tus competencias pedagógicas.</li>
+        <li>🛠️ Descubrir herramientas digitales aplicables en tu aula.</li>
+        <li>📈 Llevar un seguimiento de tu progreso y logros.</li>
+        <li>🎯 Establecer metas personales de aprendizaje.</li>
+      </ul>
+    </div>
+
+    <div style="margin-top: 2rem; background: #eaf1fb; padding: 1rem; border-left: 4px solid #4a90e2; border-radius: 8px;">
+      <p><strong>Consejo del día:</strong> "Un buen maestro nunca deja de aprender. Explora un recurso nuevo hoy."</p>
+    </div>
+  </section>
+
+  <section id="recursos" style="display: none;">
+  <h2>Recursos</h2>
+  <p>Aquí encontrarás materiales educativos. ¡Haz clic para acceder a ellos!</p>
+
+  <details>
+  <summary><strong>Herramientas para docentes</strong></summary>
+  
+  <div class="curso">
+    <h3>Canva for Education</h3>
+    <p>Diseña presentaciones, rúbricas, horarios, afiches y más, gratis para docentes.</p>
+    <button onclick="window.open('https://www.canva.com/education/', '_blank')">Ir a Canva</button>
+  </div>
+  
+  <div class="curso">
+    <h3>Genially</h3>
+    <p>Crea contenidos interactivos como juegos, presentaciones y mapas mentales.</p>
+    <button onclick="window.open('https://www.genial.ly/', '_blank')">Ir a Genially</button>
+  </div>
+  
+  <div class="curso">
+    <h3>GeoGebra</h3>
+    <p>Herramienta para matemáticas: geometría, álgebra, estadística y más.</p>
+    <button onclick="window.open('https://www.geogebra.org/', '_blank')">Ir a GeoGebra</button>
+  </div>
+
+  <div class="curso">
+    <h3>PhET</h3>
+    <p>Simulaciones interactivas de física, química, biología y matemáticas.</p>
+    <button onclick="window.open('https://phet.colorado.edu/', '_blank')">Ir a PhET</button>
+  </div>
+
+  <div class="curso">
+    <h3>Kahoot!</h3>
+    <p>Crea concursos interactivos para repasar o evaluar contenidos.</p>
+    <button onclick="window.open('https://kahoot.com/', '_blank')">Ir a Kahoot!</button>
+  </div>
+
+  <div class="curso">
+    <h3>Quizizz</h3>
+    <p>Juegos de evaluación divertidos que se pueden usar en clase o como tarea.</p>
+    <button onclick="window.open('https://quizizz.com/', '_blank')">Ir a Quizizz</button>
+  </div>
+
+  <div class="curso">
+    <h3>Plickers</h3>
+    <p>Ideal para clases sin muchos dispositivos. Solo el docente necesita un celular.</p>
+    <button onclick="window.open('https://www.plickers.com/', '_blank')">Ir a Plickers</button>
+  </div>
+
+  <div class="curso">
+    <h3>ReadTheory</h3>
+    <p>Ejercicios de comprensión lectora personalizados para cada alumno.</p>
+    <button onclick="window.open('https://readtheory.org/', '_blank')">Ir a ReadTheory</button>
+  </div>
+
+  <div class="curso">
+    <h3>CommonLit</h3>
+    <p>Lecturas gratuitas en español e inglés con preguntas de comprensión.</p>
+    <button onclick="window.open('https://www.commonlit.org/', '_blank')">Ir a CommonLit</button>
+  </div>
+
+  <div class="curso">
+    <h3>Storybird</h3>
+    <p>Fomenta la escritura creativa con cuentos ilustrados por los estudiantes.</p>
+    <button onclick="window.open('https://storybird.com/', '_blank')">Ir a Storybird</button>
+  </div>
+
+  <div class="curso">
+    <h3>Google Classroom</h3>
+    <p>Plataforma gratuita para organizar clases, tareas y retroalimentación.</p>
+    <button onclick="window.open('https://classroom.google.com/', '_blank')">Ir a Google Classroom</button>
+  </div>
+
+  <div class="curso">
+    <h3>Proyecto EDIA - Cedec</h3>
+    <p>Repositorio de recursos educativos abiertos listos para usar en clase.</p>
+    <button onclick="window.open('https://cedec.intef.es/recursos-educativos-abiertos/', '_blank')">Ir a Proyecto EDIA</button>
+  </div>
+
+</details>
+
+
+  <details>
+    <summary><strong>Educación General</strong></summary>
+    
+    <div class="curso">
+      <h3>Fundamentos de la enseñanza para el aprendizaje</h3>
+      <p>Explora los principios básicos que sustentan una enseñanza eficaz y centrada en el estudiante.</p>
+      <button onclick="window.open('https://www.coursera.org/learn/teaching', '_blank')">Iniciar Curso</button>
+    </div>
+    <div class="curso">
+      <h3>Enseñar el carácter y crear aulas positivas</h3>
+      <p>Descubre cómo fomentar valores y un ambiente positivo en tu aula.</p>
+      <button onclick="window.open('https://www.coursera.org/learn/teaching-character', '_blank')">Iniciar Curso</button>
+    </div>
+    <div class="curso">
+      <h3>IA de la educación: Aprovechar ChatGPT para la enseñanza</h3>
+      <p>Conoce cómo aplicar la inteligencia artificial y ChatGPT en el entorno educativo.</p>
+      <button onclick="window.open('https://www.coursera.org/learn/wharton-ai-in-education-leveraging-chatgpt-for-teaching', '_blank')">Iniciar Curso</button>
+    </div>
+  </details>
+
+  <details>
+    <summary><strong>Cursos de Matemáticas</strong></summary>
+        <div class="curso">
+            <h3>Álgebra básica</h3>
+            <p>Domina las bases del álgebra y su aplicación en la resolución de problemas.</p>
+            <button onclick="window.open('https://www.coursera.org/learn/algebra', '_blank')">Iniciar Curso</button>
+        </div>
+
+        <div class="curso">
+            <h3>Contenidos de la matemática escolar</h3>
+            <p>Aprende cómo enseñar matemáticas de forma clara y estructurada.</p>
+            <button onclick="window.open('https://www.coursera.org/learn/contenidos-matematica-escolar', '_blank')">Iniciar Curso</button>
+        </div>
+
+        <div class="curso">
+            <h3>Cálculo diferencial</h3>
+            <p>Adquiere conocimientos fundamentales sobre derivadas y su aplicación.</p>
+            <button onclick="window.open('https://www.coursera.org/learn/calculo-diferencial', '_blank')">Iniciar Curso</button>
+        </div>
+
+        <div class="curso">
+            <h3>Educación matemática infantil – Curso 1</h3>
+            <p>Descubre cómo enseñar matemáticas en los primeros años escolares.</p>
+            <button onclick="window.open('https://www.coursera.org/learn/educacion-matematica-infantil', '_blank')">Iniciar Curso</button>
+        </div>
+
+        <div class="curso">
+            <h3>Educación matemática infantil – Curso 2</h3>
+            <p>Profundiza en estrategias para la enseñanza de matemáticas a niños pequeños.</p>
+            <button onclick="window.open('https://www.coursera.org/learn/educacion-matematica-infantil-2', '_blank')">Iniciar Curso</button>
+        </div>
+
+        <div class="curso">
+            <h3>Trigonometría</h3>
+            <p>Estudia las funciones trigonométricas y su aplicación en problemas reales.</p>
+            <button onclick="window.open('https://www.coursera.org/learn/trigonometria', '_blank')">Iniciar Curso</button>
+        </div>
+
+        <div class="curso">
+            <h3>Métodos de enseñanza temprana de matemáticas y ciencias</h3>
+            <p>Aprende a motivar y enseñar a niños en áreas clave desde temprana edad.</p>
+            <button onclick="window.open('https://www.coursera.org/learn/metodos-ensenanza-temprana-matematicas-ciencias', '_blank')">Iniciar Curso</button>
+        </div>
+
+        <div class="curso">
+            <h3>Cálculo multivariable</h3>
+            <p>Avanza al siguiente nivel del cálculo explorando funciones de varias variables.</p>
+            <button onclick="window.open('https://www.coursera.org/learn/calculo-multivariable', '_blank')">Iniciar Curso</button>
+        </div>
+
+        <div class="curso">
+            <h3>Bases matemáticas: números y terminología</h3>
+            <p>Desarrolla tu comprensión de los conceptos básicos de matemáticas.</p>
+            <button onclick="window.open('https://www.edx.org/course/bases-matematicas-numeros-y-terminologia', '_blank')">Iniciar Curso</button>
+        </div>
+
+        <div class="curso">
+            <h3>Física: vectores, trabajo y energía</h3>
+            <p>Comprende conceptos clave de física para aplicarlos en el aula.</p>
+            <button onclick="window.open('https://www.coursera.org/learn/fisica-vectores-trabajo-energia', '_blank')">Iniciar Curso</button>
+        </div>
+
+        <div class="curso">
+            <h3>Física: dimensiones y movimiento</h3>
+            <p>Estudia las leyes del movimiento y su relación con las dimensiones físicas.</p>
+            <button onclick="window.open('https://www.coursera.org/learn/fisica-dimensiones-movimiento', '_blank')">Iniciar Curso</button>
+        </div>
+  </details>
+
+  <details>
+    <summary><strong>Cursos de Lenguaje</strong></summary>
+        <div class="curso">
+            <h3>Bienvenidos al español A1-1</h3>
+            <p>Inicia tu recorrido en el aprendizaje del español desde lo más básico.</p>
+            <button onclick="window.open('https://www.coursera.org/learn/bienvenidos-espanol-a1-1', '_blank')">Iniciar Curso</button>
+        </div>
+
+        <div class="curso">
+            <h3>Bienvenidos al español A1-2</h3>
+            <p>Continúa tu formación básica en español con este segundo curso.</p>
+            <button onclick="window.open('https://www.coursera.org/learn/bienvenidos-espanol-a1-2', '_blank')">Iniciar Curso</button>
+        </div>
+
+        <div class="curso">
+            <h3>Escritura académica en español</h3>
+            <p>Mejora tu redacción formal en contextos educativos y profesionales.</p>
+            <button onclick="window.open('https://www.coursera.org/learn/escritura-academica-espanol', '_blank')">Iniciar Curso</button>
+        </div>
+
+        <div class="curso">
+            <h3>Escritura en español</h3>
+            <p>Refuerza tus habilidades básicas de escritura en lengua española.</p>
+            <button onclick="window.open('https://www.coursera.org/learn/escritura-en-espanol', '_blank')">Iniciar Curso</button>
+        </div>
+
+        <div class="curso">
+            <h3>Corrección de estilo y variaciones</h3>
+            <p>Aprende a mejorar textos escritos prestando atención al estilo y la gramática.</p>
+            <button onclick="window.open('https://www.coursera.org/learn/correccion-estilo', '_blank')">Iniciar Curso</button>
+        </div>
+
+        <div class="curso">
+            <h3>Conciencia lingüística</h3>
+            <p>Desarrolla una perspectiva crítica sobre el lenguaje y su uso.</p>
+            <button onclick="window.open('https://www.coursera.org/learn/conciencia-linguistica', '_blank')">Iniciar Curso</button>
+        </div>
+
+        <div class="curso">
+            <h3>Viajes de letras y armas de Cervantes</h3>
+            <p>Explora la obra de Cervantes desde una mirada moderna y pedagógica.</p>
+            <button onclick="window.open('https://www.edx.org/course/viajes-de-letras-y-armas-de-cervantes', '_blank')">Iniciar Curso</button>
+        </div>
+
+        <div class="curso">
+            <h3>Historia del arte: de lo prehistórico al Renacimiento</h3>
+            <p>Conoce la evolución del arte como herramienta pedagógica e histórica.</p>
+            <button onclick="window.open('https://www.coursera.org/learn/historia-del-arte', '_blank')">Iniciar Curso</button>
+        </div>  </details>
+
+  <details>
+    <summary><strong>Cursos de Ciencias</strong></summary>
+        <div class="curso">
+            <h3>Filosofía, ciencia y humanidad</h3>
+            <p>Reflexiona sobre la relación entre el pensamiento filosófico y el avance científico.</p>
+            <button onclick="window.open('https://www.edx.org/learn/philosophy/universidades-anahuac-filosofia-ciencia-y-humanidad', '_blank')">Iniciar Curso</button>
+        </div>
+
+        <div class="curso">
+            <h3>Cómo enseñar ciencias naturales</h3>
+            <p>Aprende metodologías para una enseñanza efectiva de las ciencias en el aula.</p>
+            <button onclick="window.open('https://www.coursera.org/learn/ensenar-ciencias-naturales', '_blank')">Iniciar Curso</button>
+        </div>
+
+        <div class="curso">
+            <h3>Democracia y autocracia: teorías y descubrimientos</h3>
+            <p>Analiza sistemas políticos desde la ciencia política comparada.</p>
+            <button onclick="window.open('https://www.edx.org/learn/democracy/universita-degli-studi-di-napoli-federico-ii-democracia-y-autocracia-teorias-y-descubrimientos-empiricos', '_blank')">Iniciar Curso</button>
+        </div>
+
+        <div class="curso">
+            <h3>Aprendizaje activo en STEM con simulaciones PhET</h3>
+            <p>Implementa simulaciones interactivas para enseñar ciencias de forma atractiva.</p>
+            <button onclick="window.open('https://www.coursera.org/specializations/aprendizaje-activo-stem-con-simulaciones-interactivas-phet', '_blank')">Iniciar Curso</button>
+        </div>
+
+        <div class="curso">
+            <h3>Conceptos básicos del medio ambiente</h3>
+            <p>Comprende los elementos fundamentales de los sistemas ambientales y su estudio.</p>
+            <button onclick="window.open('https://www.coursera.org/learn/conceptos-estudio-del-medio-ambiente', '_blank')">Iniciar Curso</button>
+        </div>
+
+        <div class="curso">
+            <h3>Especialización en evolución</h3>
+            <p>Explora la teoría de la evolución desde Darwin hasta los enfoques actuales.</p>
+            <button onclick="window.open('https://www.coursera.org/specializations/evolucion', '_blank')">Iniciar Curso</button>
+        </div>
+
+        <div class="curso">
+            <h3>América Latina en perspectiva</h3>
+            <p>Analiza procesos históricos y sociales que han moldeado la región.</p>
+            <button onclick="window.open('https://www.coursera.org/learn/america-latina', '_blank')">Iniciar Curso</button>
+        </div>
+
+        <div class="curso">
+            <h3>El Antártico: un continente asombroso</h3>
+            <p>Descubre la biodiversidad, historia y geopolítica del continente blanco.</p>
+            <button onclick="window.open('https://www.edx.org/learn/science/universidad-nacional-de-cordoba-el-antartico-un-continente-asombroso', '_blank')">Iniciar Curso</button>
+        </div>
+
+        <div class="curso">
+            <h3>Células y tejidos</h3>
+            <p>Aprende sobre las estructuras celulares y su importancia en organismos vivos.</p>
+            <button onclick="window.open('https://www.edx.org/learn/cellular-biology/universitat-politecnica-de-valencia-celulas-y-tejidos', '_blank')">Iniciar Curso</button>
+        </div>
+
+        <div class="curso">
+            <h3>Política global</h3>
+            <p>Estudia las dinámicas políticas internacionales y sus implicaciones sociales.</p>
+            <button onclick="window.open('https://www.edx.org/learn/politics/universita-degli-studi-di-napoli-federico-ii-politica-global', '_blank')">Iniciar Curso</button>
+        </div>
+
+        <div class="curso">
+            <h3>Darwin, el origen y el evolucionismo moderno</h3>
+            <p>Conoce la evolución de las ideas científicas a partir de Darwin.</p>
+            <button onclick="window.open('https://www.coursera.org/learn/darwin-origen-evolucionismo-moderno', '_blank')">Iniciar Curso</button>
+        </div>
+  </details>
+
+  <details>
+    <summary><strong>Cursos de Desarrollo</strong></summary>
+        <div class="curso">
+            <h3>Aprendiendo a aprender</h3>
+            <p>Domina estrategias mentales para estudiar de manera más efectiva.</p>
+            <button onclick="window.open('https://www.coursera.org/learn/aprendiendo-a-aprender', '_blank')">Iniciar Curso</button>
+        </div>
+
+        <div class="curso">
+            <h3>Métodos de educación efectiva</h3>
+            <p>Conoce enfoques educativos respaldados por la investigación científica.</p>
+            <button onclick="window.open('https://www.coursera.org/specializations/metodos-de-educacion-efectiva', '_blank')">Iniciar Curso</button>
+        </div>
+
+        <div class="curso">
+            <h3>Gestión del estrés y mindfulness</h3>
+            <p>Aprende a manejar el estrés mediante técnicas de atención plena.</p>
+            <button onclick="window.open('https://www.coursera.org/learn/gestion-del-estres-y-mindfulness', '_blank')">Iniciar Curso</button>
+        </div>
+
+        <div class="curso">
+            <h3>Trabajo por proyectos en escuelas rurales</h3>
+            <p>Implementa proyectos educativos adaptados a contextos rurales.</p>
+            <button onclick="window.open('https://www.coursera.org/learn/trabajo-proyectos-escuelas-rurales', '_blank')">Iniciar Curso</button>
+        </div>
+
+        <div class="curso">
+            <h3>Políticas educativas efectivas</h3>
+            <p>Conoce cómo diseñar políticas basadas en evidencia para mejorar la educación.</p>
+            <button onclick="window.open('https://www.coursera.org/learn/polticas-educativas-efectivas-basadas-en-evidencia', '_blank')">Iniciar Curso</button>
+        </div>
+
+        <div class="curso">
+            <h3>Cómo usar Canva para maestros</h3>
+            <p>Crea recursos visuales atractivos con Canva para mejorar tu enseñanza.</p>
+            <button onclick="window.open('https://www.coursera.org/projects/como-usar-canva-para-maestros', '_blank')">Iniciar Curso</button>
+        </div>
+
+        <div class="curso">
+            <h3>Especialización en éxito profesional</h3>
+            <p>Desarrolla competencias clave para destacar en tu carrera educativa.</p>
+            <button onclick="window.open('https://www.coursera.org/specializations/exito-profesional', '_blank')">Iniciar Curso</button>
+        </div>
+
+        <div class="curso">
+            <h3>Programa de apoyo psicoemocional (PAP)</h3>
+            <p>Conoce herramientas emocionales para aplicar en entornos educativos.</p>
+            <button onclick="window.open('https://www.coursera.org/learn/pap', '_blank')">Iniciar Curso</button>
+        </div>
+
+        <div class="curso">
+            <h3>Psicología del aprendizaje</h3>
+            <p>Explora los procesos mentales que influyen en cómo las personas aprenden.</p>
+            <button onclick="window.open('https://www.coursera.org/learn/psicologia-del-aprendizaje', '_blank')">Iniciar Curso</button>
+        </div>
+
+        <div class="curso">
+            <h3>Salud mental y atención comunitaria</h3>
+            <p>Promueve el bienestar emocional desde una perspectiva educativa y social.</p>
+            <button onclick="window.open('https://www.coursera.org/learn/salud-mental-y-atencion-comunitaria', '_blank')">Iniciar Curso</button>
+        </div>
+  </details>
+</section>
+
+
+
+    <!-- Sección Obtener certificación -->
+  <section id="obtener-certificacion" style="display: none;">
+    <h2>Obtener certificación</h2>
+    
+    <div id="instrucciones-certificacion" style="margin-bottom: 20px; font-size: 1.1rem; line-height: 1.5;">
+      <p>
+        Envía capturas de pantalla que muestren los módulos que completaste y cualquier tarea que hayas realizado durante el curso al correo 
+        <a href="mailto:certificaciondocente@mineduc.gob.gt">certificaciondocente@mineduc.gob.gt</a>. 
+        Luego, llena el formulario que está más abajo y espera entre 2 y 3 días hábiles. 
+        Recibirás un correo con un código. Ingresa a tu panel, haz clic en <strong>"Agregar curso"</strong>, escribe el código y verás el curso agregado a tu perfil.
+      </p>
+
+    </div>
+
+    <div id="formulario-certificacion">
+      <a href="https://forms.gle/evk4Q5udnUWoKci69" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 12px 24px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px;">
+        Ir al formulario de certificación
+      </a>
+    </div>
+  </section>
+  <section id="panel" style="display: none;">
+    <h2 id="tituloPanel">Panel del Maestro</h2>
+
+
+
+    <div class="progreso">
+      <h3>Agregar curso por código</h3>
+      <input type="text" id="codigoCurso" placeholder="Ingresa el código del curso">
+      <button onclick="agregarCurso()">Agregar</button>
+      <p id="mensajeCurso" style="color: green; font-weight: bold;"></p>
+    </div>
+
+    <script>
+      const cursos = {
+        "C5821": "Filosofía, ciencia y humanidad",
+        "C1794": "Enseñar ciencias naturales",
+        "C7235": "Democracia y autocracia: teorías y descubrimientos empíricos",
+        "C8023": "Aprendizaje activo STEM con simulaciones interactivas PhET",
+        "C3846": "Conceptos en el estudio del medio ambiente",
+        "C9310": "La evolución: una perspectiva científica",
+        "C2175": "América Latina en la Historia Contemporánea",
+        "C6450": "El Antártico: un continente asombroso",
+        "C9168": "Células y tejidos",
+        "C4662": "Política global",
+        "C7078": "Darwin y el origen del evolucionismo moderno",
+        "M8602": "Herramientas de razonamiento cuantitativo",
+        "M3127": "La geometría como herramienta para la vida cotidiana",
+        "M9431": "Matemáticas escolares: currículo y enseñanza",
+        "M1093": "Pensamiento algebraico",
+        "M4306": "Didáctica de la probabilidad y la estadística",
+        "M6820": "Didáctica de las matemáticas",
+        "M5319": "Evaluar para comprender las matemáticas escolares",
+        "M1275": "Didáctica de las matemáticas para primaria",
+        "M8750": "Matemáticas para enseñar en secundaria",
+        "M7921": "Álgebra Básica",
+        "M3286": "Fundamentos de Estadística",
+        "M9570": "Lógica y razonamiento",
+        "L6472": "Lenguaje en la escuela primaria",
+        "L3895": "¿Cómo (nos) cambia la literatura?",
+        "L5621": "¿Por qué educar en el arte?",
+        "L7038": "Estrategias de lectura",
+        "L1382": "Cómo enseñar a leer",
+        "L9946": "Gramática descriptiva del español",
+        "L8130": "Escritura académica",
+        "L4097": "Retos de la educación en América Latina",
+        "L2573": "Escritura creativa",
+        "L3749": "Pensamiento crítico y argumentación",
+        "D6601": "Aprendiendo a aprender",
+        "D8824": "Métodos de educación efectiva",
+        "D2087": "Gestión del estrés y mindfulness",
+        "D3371": "Trabajo por proyectos en escuelas rurales",
+        "D9218": "Políticas educativas efectivas",
+        "D4543": "Cómo usar Canva para maestros",
+        "D3706": "Habilidades clave para el éxito profesional",
+        "D7189": "Programa de apoyo pedagógico (PAP)",
+        "D6432": "Psicología del aprendizaje",
+        "D5934": "Salud mental y atención comunitaria"
+      };
+
+      const cursosAgregados = new Set();
+
+      function agregarCurso() {
+        const codigo = document.getElementById("codigoCurso").value.trim().toUpperCase();
+        const mensaje = document.getElementById("mensajeCurso");
+        const contenedor = document.getElementById("cursosCompletados");
+
+        if (!cursos[codigo]) {
+          mensaje.textContent = "Código no válido.";
+          mensaje.style.color = "red";
+          return;
+        }
+
+        if (cursosAgregados.has(codigo)) {
+          mensaje.textContent = "Este curso ya fue agregado.";
+          mensaje.style.color = "orange";
+          return;
+        }
+
+        const cursoNombre = cursos[codigo];
+        const descripcion = "Este curso fortalece tus habilidades en " + cursoNombre.toLowerCase() + ".";
+
+        const divCurso = document.createElement("div");
+        divCurso.style.border = "1px solid #ccc";
+        divCurso.style.padding = "10px";
+        divCurso.style.marginTop = "10px";
+        divCurso.style.borderRadius = "5px";
+        divCurso.style.backgroundColor = "#f9f9f9";
+        divCurso.innerHTML = `<strong>${cursoNombre}</strong><p>${descripcion}</p>`;
+
+        contenedor.appendChild(divCurso);
+        cursosAgregados.add(codigo);
+
+        mensaje.textContent = "Curso agregado.";
+        mensaje.style.color = "green";
+        document.getElementById("codigoCurso").value = "";
+      }
+    </script>
+    <div class="progreso">
+      <h3>Cursos Completados</h3>
+      <div id="cursosCompletados"></div>
+    </div>
+    <div class="progreso" id="progresoPanel">
+      <h3>Racha de Aprendizaje</h3>
+      <p>Llevas 5 días seguidos aprendiendo. ¡Sigue así!</p>
+    </div>
+  </section>
+  <section id="track" style="display: none;padding: 20px; background-color: #ffffff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-top: 20px; width: 90%; max-width: 800px; margin-left: auto; margin-right: auto;">
+  <h2 style="color: #3b82f6; font-size: 24px; margin-bottom: 16px;">Metas del Maestro</h2>
+
+  <div style="margin-bottom: 20px;">
+    <label for="goalInput" style="display: block; margin-bottom: 8px; font-weight: bold;">Agregar nueva meta (máx. 3):</label>
+    <input type="text" id="goalInput" placeholder="Escribe tu meta mensual" style="padding: 8px; width: 70%; border-radius: 8px; border: 1px solid #ccc;">
+    <button onclick="addGoal()" style="padding: 8px 16px; background-color: #4f46e5; color: white; border: none; border-radius: 8px; margin-left: 8px;">Agregar</button>
+  </div>
+
+  <div id="goalList"></div>
+</section>
+
+<script>
+  let goals = JSON.parse(localStorage.getItem("teacherGoals") || "[]");
+
+  function renderGoals() {
+    const container = document.getElementById("goalList");
+    container.innerHTML = "";
+
+    goals.forEach((goal, index) => {
+      const progress = Math.round((goal.progress / 7) * 100); // Suponemos 7 días
+
+      const goalItem = document.createElement("div");
+      goalItem.style = "background-color: #e0f2f1; padding: 16px; border-radius: 10px; margin-bottom: 12px;";
+
+      goalItem.innerHTML = `
+        <strong style="font-size: 18px;">${goal.text}</strong>
+        <div style="margin-top: 8px; margin-bottom: 8px;">
+          Progreso: ${goal.progress} de 7 días
+          <div style="height: 16px; background-color: #cbd5e1; border-radius: 8px; overflow: hidden; margin-top: 4px;">
+            <div style="width: ${progress}%; background-color: #4f46e5; height: 100%; transition: width 0.3s;"></div>
+          </div>
+        </div>
+        <button onclick="increaseProgress(${index})" style="margin-right: 8px; background-color: #22c55e; color: white; border: none; padding: 6px 12px; border-radius: 6px;">+1 día</button>
+        <button onclick="resetProgress(${index})" style="background-color: #ef4444; color: white; border: none; padding: 6px 12px; border-radius: 6px;">Reiniciar</button>
+      `;
+      container.appendChild(goalItem);
+    });
+  }
+
+  function addGoal() {
+    const input = document.getElementById("goalInput");
+    const text = input.value.trim();
+
+    if (text === "") {
+      alert("Por favor escribe una meta.");
+      return;
+    }
+
+    if (goals.length >= 3) {
+      alert("Solo puedes tener 3 metas activas.");
+      return;
+    }
+
+    goals.push({ text, progress: 0 });
+    localStorage.setItem("teacherGoals", JSON.stringify(goals));
+    input.value = "";
+    renderGoals();
+  }
+
+  function increaseProgress(index) {
+  if (goals[index].progress < 7) {
+    goals[index].progress++;
+    if (goals[index].progress === 7) {
+      awardBadge(goals[index].text);
+    }
+    localStorage.setItem("teacherGoals", JSON.stringify(goals));
+    renderGoals();
+  }
+}
+
+
+  function resetProgress(index) {
+    goals[index].progress = 0;
+    localStorage.setItem("teacherGoals", JSON.stringify(goals));
+    renderGoals();
+  }
+  function awardBadge(goalText) {
+  const badges = JSON.parse(localStorage.getItem("badges") || "[]");
+
+  if (!badges.includes(goalText)) {
+    badges.push(goalText);
+    localStorage.setItem("badges", JSON.stringify(badges));
+  }
+
+  renderBadges();
+}
+
+function renderBadges() {
+  const container = document.getElementById("progresoPanel");
+  const badges = JSON.parse(localStorage.getItem("badges") || "[]");
+
+  // Elimina insignias previas
+  const oldBadges = container.querySelectorAll(".badge");
+  oldBadges.forEach(el => el.remove());
+
+  badges.forEach(badge => {
+    const badgeElement = document.createElement("p");
+    badgeElement.className = "badge";
+    badgeElement.style = "margin-top: 6px; background-color: #fef3c7; color: #92400e; padding: 6px 12px; border-radius: 8px; display: inline-block;";
+    badgeElement.innerHTML = `🏅 Insignia de "${badge}"<br>`;
+
+    container.appendChild(badgeElement);
+  });
+}
+
+
+  renderGoals(); 
+  renderBadges();
+
+</script>
+
+  <section style="display: none;"id="perfil"> 
+    <style>
+        #crearPerfilContainer, #mostrarPerfilContainer {
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            font-family: Arial, sans-serif;
+        }
+
+        form label {
+            margin-top: 12px;
+            display: block;
+            font-weight: bold;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .stats {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .stats div {
+            flex: 1 1 30%;
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #3f51b5;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+        background-color: #2c3ea7;
+        }
+
+        #mostrarPerfilContainer p,
+        #mostrarPerfilContainer label {
+        margin: 10px 0;
+        }
+    </style>
+
+  <div id="crearPerfilContainer" style="display: none;">
+    <h2>Crear perfil</h2>
+    <form id="formPerfil">
+      <label>DPI:</label>
+      <input type="text" name="dpi" required>
+
+      <label>Nombre:</label>
+      <input type="text" name="nombre" required>
+
+      <label>Apellidos:</label>
+      <input type="text" name="apellidos" required>
+
+      <label>Institución:</label>
+      <input type="text" name="institucion" required>
+
+      <label>Correo:</label>
+      <input type="email" name="correo" required>
+
+      <label>Fecha de nacimiento:</label>
+      <input type="date" name="fecha" required>
+
+      <label>Foto de perfil (opcional):</label>
+      <input type="file" name="foto" accept="image/*" id="fotoPerfilInput">
+
+      <label>Biografía educativa:</label>
+      <textarea name="biografia" rows="3" required></textarea>
+
+      <label>Metas del mes:</label>
+      <textarea name="metas" rows="2" required></textarea>
+
+      <button type="submit">Guardar perfil</button>
+    </form>
+  </div>
+
+  <div id="mostrarPerfilContainer" style="display: none;">
+    <h2>Mi Perfil</h2>
+
+    <div style="text-align: center;">
+      <img id="profileImage" src="https://via.placeholder.com/120" alt="Foto de perfil" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 2px solid #ccc;" />
+    </div>
+
+    <div class="profile-info">
+      <p><strong>Nombre:</strong> <span id="nombrePerfil"></span></p>
+      <p><strong>DPI:</strong> <span id="dpiPerfil"></span></p>
+      <p><strong>Institución:</strong> <span id="institucionPerfil"></span></p>
+      <p><strong>Correo:</strong> <span id="correoPerfil"></span></p>
+      <p><strong>Fecha de nacimiento:</strong> <span id="fechaPerfil"></span></p>
+
+      <hr>
+      <label><strong>Biografía educativa:</strong></label>
+      <p id="bioTexto"></p>
+
+      <label><strong>Metas del mes:</strong></label>
+      <p id="metasTexto"></p>
+
+      <div class="stats">
+        <div><strong>Cursos completados:</strong> 5</div>
+        <div><strong>Horas de estudio:</strong> 36 h</div>
+        <div><strong>Última actividad:</strong> Hace 2 días</div>
+      </div>
+
+      <br>
+      <button onclick="editarPerfil()">Editar perfil</button>
+    </div>
+  </div>
+</section>
+
+<script>
+  const crearContainer = document.getElementById('crearPerfilContainer');
+  const mostrarContainer = document.getElementById('mostrarPerfilContainer');
+  const profileImage = document.getElementById('profileImage');
+  const form = document.getElementById('formPerfil');
+
+  function mostrarPerfilGuardado() {
+    const perfil = JSON.parse(sessionStorage.getItem('perfilUsuario'));
+    if (!perfil) {
+      crearContainer.style.display = 'block';
+      mostrarContainer.style.display = 'none';
+    } else {
+      crearContainer.style.display = 'none';
+      mostrarContainer.style.display = 'block';
+
+      document.getElementById('nombrePerfil').textContent = `${perfil.nombre} ${perfil.apellidos}`;
+      document.getElementById('dpiPerfil').textContent = perfil.dpi;
+      document.getElementById('institucionPerfil').textContent = perfil.institucion;
+      document.getElementById('correoPerfil').textContent = perfil.correo;
+      document.getElementById('fechaPerfil').textContent = perfil.fecha;
+      document.getElementById('bioTexto').textContent = perfil.biografia;
+      document.getElementById('metasTexto').textContent = perfil.metas;
+
+      profileImage.src = perfil.foto || "https://via.placeholder.com/120";
+    }
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const data = new FormData(form);
+
+    const perfil = {
+      dpi: data.get('dpi'),
+      nombre: data.get('nombre'),
+      apellidos: data.get('apellidos'),
+      institucion: data.get('institucion'),
+      correo: data.get('correo'),
+      fecha: data.get('fecha'),
+      biografia: data.get('biografia'),
+      metas: data.get('metas')
+    };
+
+    const foto = data.get('foto');
+    if (foto && foto.size > 0) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        perfil.foto = e.target.result;
+        sessionStorage.setItem('perfilUsuario', JSON.stringify(perfil));
+        mostrarPerfilGuardado();
+      };
+      reader.readAsDataURL(foto);
+    } else {
+      perfil.foto = null;
+      sessionStorage.setItem('perfilUsuario', JSON.stringify(perfil));
+      mostrarPerfilGuardado();
+    }
+  });
+
+  function editarPerfil() {
+    sessionStorage.removeItem('perfilUsuario');
+    mostrarPerfilGuardado();
+  }
+
+  mostrarPerfilGuardado();
+</script>
+<script>
+  function mostrarSeccion(id) {
+    const secciones = document.querySelectorAll('section');
+    secciones.forEach(seccion => {
+      seccion.style.display = 'none';
+    });
+    document.getElementById(id).style.display = 'block';
+  }
+</script>
+
+
+
+  <!-- Chatbot de Voiceflow -->
+  <script type="text/javascript">
+  (function(d, t) {
+      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      v.onload = function() {
+        window.voiceflow.chat.load({
+          verify: { projectID: '6824a4edf0bf73b7df883b2f' },
+          url: 'https://general-runtime.voiceflow.com',
+          versionID: 'production',
+          voice: {
+            url: "https://runtime-api.voiceflow.com"
+          }
+        });
+      }
+      v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+  })(document, 'script');
+</script>
+  <script>
+    const imageInput = document.getElementById('imageUpload');
+    const imagePreview = document.getElementById('profileImage');
+
+    imageInput.addEventListener('change', function () {
+        const file = imageInput.files[0];
+        if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            imagePreview.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+        }
+    });
+    </script>
+
+</body>
+</html>

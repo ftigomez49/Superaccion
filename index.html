@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Inicio de Sesión</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+    }
+    .login-container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+    input {
+      padding: 10px;
+      width: 100%;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007BFF;
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .error {
+      color: red;
+      margin-top: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Inicio de Sesión</h2>
+    <input type="text" id="codigo" placeholder="Ingresa tu código" />
+    <button onclick="iniciarSesion()">Iniciar sesión</button>
+    <div class="error" id="mensaje"></div>
+  </div>
+
+  <script>
+    const codigosValidos = ["ABC123", "XYZ789", "COD456"];
+
+    function iniciarSesion() {
+      const codigo = document.getElementById("codigo").value.trim();
+      const mensaje = document.getElementById("mensaje");
+
+      if (codigosValidos.includes(codigo)) {
+        window.location.href = "prueba.html";
+      } else {
+        mensaje.textContent = "Código inválido. Intenta de nuevo.";
+        mensaje.style.color = "red";
+      }
+    }
+
+    // Escuchar la tecla Enter en el input
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+        iniciarSesion();
+      }
+    });
+  </script>
+</body>
+</html>
